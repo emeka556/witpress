@@ -9,11 +9,10 @@ import models.*;
 public class Bootstrap extends Job 
 { 
   public void doJob()
-
-    
+  {
+    if (User.count() == 0)
     {
-	 Fixtures.deleteDatabase();
      Fixtures.loadModels("data.yml");
     }
- 
+  }
 }

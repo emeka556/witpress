@@ -1,6 +1,11 @@
 package models;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
 
 import play.db.jpa.Model;
 
@@ -12,6 +17,14 @@ public class User extends Model{
 	public String email;
 	public String password;
 	
+	@OneToMany(cascade=CascadeType.ALL)
+	 public List<Post> posts;
+
+	  public void addPost (Post post)
+	  {
+	    posts.add(post);
+	  }
+
 	
 	public User(String firstName, String lastName, String email, String password){
 		this.firstName = firstName;
