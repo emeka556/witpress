@@ -1,0 +1,32 @@
+#{extends 'main.html' /} #{set title:'Get Started Login for witpress' /}
+<nav class="ui menu">
+  <a class="ui active item" href="/">WitPress</a>
+</nav>
+
+<div class="ui one column grid">
+  <div class="ten wide column">
+    <form action="/signup" method="GET">
+      <div class="ui segment">
+        <div class="ui segment">
+          <button type="submit" class="ui massive green button">
+            Get Started - sign up here</button>
+        </div>
+      </div>
+    </form>
+    <form action="/authenticate" method="POST">
+      <div class="ui segment">
+        If already registered log in and begin publishing.
+        <div class="ui fluid form segment">
+          <div class="fluid field">
+            <label>Email</label> <input placeholder="Email" name="email"
+              type="text">
+          </div>
+          <div class="fluid field">
+            <label>Password</label> <input type="password" name="password">
+          </div>
+          <button type="submit" class="ui green submit button">Login</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
