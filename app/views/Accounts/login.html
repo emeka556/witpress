@@ -1,5 +1,5 @@
 #{extends 'main.html' /} #{set title:'Get Started Login for witpress' /}
-<nav class="ui menu">
+<nav class="ui inverted blue menu">
   <a class="ui active item" href="/">WitPress</a>
 </nav>
 
@@ -8,7 +8,7 @@
     <form action="/signup" method="GET">
       <div class="ui segment">
         <div class="ui segment">
-          <button type="submit" class="ui massive green button">
+          <button type="submit" class="ui massive blue button">
             Get Started - sign up here</button>
         </div>
       </div>
@@ -17,14 +17,19 @@
       <div class="ui segment">
         If already registered log in and begin publishing..
         <div class="ui fluid form segment">
-          <div class="fluid field">
-            <label>Email</label> <input placeholder="Email" name="email"
-              type="text">
+        <div class="field">
+          <div class="ui left icon input field">
+            <input placeholder="Email" name="email" type="text">
+          <i class="user icon"></i>
           </div>
-          <div class="fluid field">
-            <label>Password</label> <input type="password" name="password">
           </div>
-          <button type="submit" class="ui green submit button">Login</button>
+          <div class="field">
+          <div class="ui left icon input field">
+            <input placeholder="Password" type="password" name="password">
+          <i class="lock icon"></i>
+          </div>
+          </div>
+          <button type="submit" class="ui blue submit button">Login</button>
         </div>
       </div>
     </form>

@@ -1,11 +1,11 @@
 #{extends 'main.html' /}
 #{set title:'Sign up' /}
 
-<nav class="ui menu">
+<nav class="ui inverted blue menu">
   <a class="ui active item" href="/">WitPress</a>
 </nav>
 
-<section class="ui segment">
+<section class="ui  segment">
 <form action="/register" method="POST">
   <div class="ui two column grid">
   <div class="column">
@@ -22,12 +22,18 @@
         </div>
       </div>
       <div class="field">
-        <label>Email</label>
+      <div class="ui left icon input field">
+        
         <input placeholder="Email" name="email" type="text">
+        <i class="user icon"></i>
+      </div>
       </div>
       <div class="field">
-        <label>Password</label>
+      <div class="ui left icon input field">
+      
         <input type="password" name="password">
+        <i class="lock icon"></i>
+      </div>
       </div>
       <div class="inline field">
         <div class="ui checkbox">
@@ -35,7 +41,7 @@
           <label for="conditions">I agree to the terms and conditions</label>
         </div>
       </div>
-      <button type="submit" class="ui green submit button">Submit</button>
+      <button type="submit" class="ui blue submit button">Submit</button>
     </div>
   </div>
 </div>

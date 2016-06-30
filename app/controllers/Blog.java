@@ -10,12 +10,15 @@ import java.util.ArrayList;
 
 public class Blog  extends Controller
 {
+	
   public static void index()
   {
     User user = Accounts.getCurrentUser();
-    ArrayList<Post> reversePosts = new ArrayList<Post>(user.posts);
+    List<Post> reversePosts = new ArrayList<Post>(user.posts);
+    
+    //Logger.info("test", reversePosts.get(0).content);
     Collections.reverse(reversePosts);
-    render(user, reversePosts);
+    render("Blog/home.html" , user, reversePosts);
   }
 
   public static void recentPost(String title, String content)

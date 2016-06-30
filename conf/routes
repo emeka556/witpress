@@ -9,6 +9,10 @@ GET    /logout                                 Accounts.logout
 POST   /authenticate                           Accounts.authenticate
 POST   /register                               Accounts.register
 
+# Blog Controller and View
+GET   /blog                                     Blog.index
+POST  /blog/recentpost                          Blog.recentPost
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 

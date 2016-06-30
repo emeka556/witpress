@@ -1,49 +1,3 @@
-User(homer):
-    firstName: Homer
-    lastName: Simpson
-    email: homer@simpson.com
-    password: secret
-    post: 
-             - post1
-             - post2
-    
-    
-User(marge):
-    firstName: Marge
-    lastName: Simpson
-    email: marge@simpson.com
-    password: secret
-    post: 
-             - post3
-             - post4
-    
-
-User(lisa):
-    firstName: Lisa
-    lastName: Simpson
-    email: lisa@simpson.com
-    password: secret
-    post: 
-             - post5
-             - post6
-
-User(bart):
-    firstName: Bart
-    lastName: Simpson
-    email: bart@simpson.com
-    password: secret
-    post: 
-             - post7
-             - post8
-             
-User(maggie):
-    firstName: Maggie
-    lastName: Simpson
-    email: maggie@simpson.com
-    password: secret
-    post: 
-             - post9
-             - post10
              
 Comment(comment1):
     content: Couldn't disagree with you more.
@@ -136,8 +90,50 @@ Post(post10):
     content: Something's rotten in the state of Suir
 
 
+User(homer):
+    firstName: Homer
+    lastName: Simpson
+    email: homer@simpson.com
+    password: secret
+    posts: 
+          - post1
+          - post2
+          
+User(marge):
+    firstName: Marge
+    lastName: Simpson
+    email: marge@simpson.com
+    password: secret
+    posts: 
+          - post3
+          - post4
+  
+User(lisa):
+    firstName: Lisa
+    lastName: Simpson
+    email: lisa@simpson.com
+    password: secret
+    posts: 
+          - post5
+          - post6
+   
+User(bart):
+    firstName: Bart
+    lastName: Simpson
+    email: bart@simpson.com
+    password: secret
+    posts: 
+          - post7
+          - post8
+             
+User(maggie):
+    firstName: Maggie
+    lastName: Simpson
+    email: maggie@simpson.com
+    password: secret
+    posts: 
+          - post9
+          - post10
+   
     
-
-
-
-
+    

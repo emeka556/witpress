@@ -1,0 +1,45 @@
+#{extends 'main.html' /}
+#{set title:"WitPress Home Page for ${user.firstName} ${user.lastName}" /}
+
+<nav class="ui inverted blue menu">
+  <a class="ui item" href="/">WitPress</a>
+  <a class="ui active item" href="/blog">Blog</a>
+</nav>
+
+<div class="ui two column grid">
+  <div class="column">
+    <form action="blog/recentpost" method=POST>
+    
+      <div class="ui fluid form segment">
+        <div class="field">
+          <textarea placeholder='Choose a title for post' name="title" rows="1"></textarea>
+        </div>
+        <div class="field">
+          <textarea placeholder='Write your post here' name="content"></textarea>
+        </div>
+       
+        <button class="ui blue button"><i class="share icon"></i> Submit New Post</button>
+      </div>
+    </form>
+  </div>
+
+<div class="ui seven wide column ">
+  
+  
+  <div class="ui fluid form segment">
+    <div class="field">
+    <div class="ui form">
+    <div class="field">
+      #{list items:reversePosts, as:'post'} 
+       <!--Add a href link to navigate to the other blog display page for commenting-->
+      
+       <a href="@{Blog.deletePost(post.id)}" class="small ui orange button"><i class="trash black icon"></i>Delete</a>  <a href="@{BlogPost.display(post.id)}"> ${post.title} </a> 
+      </div>
+       <div class="field">
+      #{/list}
+      
+      </div>
+    </div>
+    
+</div>
+</div>

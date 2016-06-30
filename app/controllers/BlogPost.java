@@ -12,7 +12,7 @@ public class BlogPost extends Controller
   {
     Logger.info("Post ID = " + postid);
     Post post = Post.findById(postid);
-    render (post);
+    render ("BlogPost/display.html", post);
   }
 
   public static void recentComment(Long postid, String content)

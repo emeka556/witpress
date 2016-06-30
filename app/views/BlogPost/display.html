@@ -1,0 +1,45 @@
+#{extends 'main.html' /}
+#{set title:"WitPress Blog Post : ${post.title}" /}
+
+<nav class="ui inverted blue menu">
+  <a class="ui item" href="/">WitPress</a>
+  <a class="ui active item" href="/blog">Blog</a>
+</nav>
+
+<div class="ui one column grid">
+  <div class="ten wide column">   
+  <div class="ui segment">  
+        <h4>
+          <a class="ui large teal tag label"> Title:</a> ${post.title} 
+        </h4> 
+        <p> 
+          <a class="ui small teal tag label"> Content:</a> ${post.content} 
+        </p>
+
+        <div class="ui divider"></div>
+        
+        <h5><u> Comments: </u>  </h5>
+      
+        <div class="ui form">
+        
+          #{list items:post.comments, as:'comment'}
+           <p> 
+              <a href="@{BlogPost.deleteComment(post.id, comment.id)}" class="small ui orange button"><i class="trash black icon"></i>Delete</a> ${comment.content}
+             </p>
+        
+          <div class="field">
+        </div>                     
+        #{/list}                 
+        </div> 
+        <form action="@{BlogPost.recentComment(post.id)}" method="POST">   
+          <div class="ui fluid form segment">        
+            <div class="field">
+              <textarea placeholder='Provide a comment here' name="content" rows='2'></textarea>
+            </div>
+            <button class="ui blue button"><i class="share icon"></i> New Comment</button>
+          </div>
+        </form>         
+        
+   </div>
+</div>  
+</div>
