@@ -14,14 +14,14 @@ import play.mvc.Controller;
 public class PublicBlog  extends Controller
 {
 
-  public static void display(Long id)
+  public static void displayBlogs(Long id)
   {     
 	User user = User.findById(id);
     Logger.info("Request to show blogs for user id: " + id);
     
     List<Post> reversePosts  = new ArrayList<Post> () ;
+
     reversePosts = (user.posts);
-    Collections.reverse(reversePosts);
 
     User logged_in_user = null;
     if (session.contains("logged_in_userid"))
@@ -40,7 +40,7 @@ public class PublicBlog  extends Controller
 
       post.addComment(comment);
       post.save();
-      display(userID);
+      displayBlogs(userID);
       
           } 
 }

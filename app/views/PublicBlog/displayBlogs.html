@@ -1,0 +1,59 @@
+#{extends 'main.html' /}
+#{set title:"WitPress Blog for ${user.firstName} ${user.lastName}" /}
+<nav class="ui inverted blue menu">
+  <a class="ui item" href="/">WitPress</a>
+  <a class="ui item" href="/blog">Blog</a>
+  <a class="ui item" href="/publicblogdirectory">Public Blog Directory</a> 
+  <a class="ui item" href="/about">About</a> 
+  <a class="ui item" href="/contact">Contact</a>
+  <a class="ui item" href="/logout">Logout</a>
+</nav>
+
+<div class="ui two column grid">
+  <div class="ten wide column">   
+  <div class="ui segment">
+    #{list items:reversePosts, as:'post'}
+      <h4>
+        <a class="ui large teal tag label"> Title:</a> ${post.title}
+      </h4> 
+        <a class="ui small teal tag label"> Content:</a> ${post.content}
+        <div class="ui divider"></div>
+
+      #{if logged_in_user != null} <!-- if user is logged in it displays the form field for comment entry -->
+
+        <h5> <u> Comments: </u> </h5>     
+        #{list items:post.comments, as:'comment'}
+         <p> 
+           ${comment.content}:
+         </p>     
+        #{/list}  
+        
+        <form action="@{PublicBlog.recentComment(post.id, user.id, logged_in_user.id)}" method="POST">   
+          <div class="ui fluid form segment">        
+            <div class="field">
+              <textarea placeholder='Provide a comment here' name="content" rows="2"></textarea>
+            </div>
+            
+            <button class="ui green button"><i class="share icon"></i> New Comment</button>
+          </div>
+        </form> 
+
+      #{/if}    
+      #{else}
+
+        #{if post.comments.size() > 0}
+          <h5> Comments: </h5>
+            #{list items:post.comments, as:'comment'}
+             <p> 
+               ${comment.content}:
+             </p>     
+            #{/list}
+        <div class="ui divider"></div>
+        #{/if}     
+
+      #{/else}  
+    #{/list}  
+    </div>    
+  </div>
+  <img class="ui medium image" src="/public/images/Blog-dir.jpg"> 
+</div>

@@ -10,9 +10,9 @@ import models.User;
 import play.Logger;
 import play.mvc.Controller;
 
-public class PublicBlogDirectory  extends Controller
+public class PublicBlogDirectory extends Controller
 {
-  public static void index()
+  public static void directory()
   {
     ArrayList<User> BlogsUsers = new ArrayList<User>();
 
@@ -24,6 +24,6 @@ public class PublicBlogDirectory  extends Controller
     	  BlogsUsers.add(user);
       }
     }
-    render(BlogsUsers);
+    render("PublicBlogDirecory/directory.html", BlogsUsers);
   }
 }

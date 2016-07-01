@@ -4,10 +4,17 @@ import models.Post;
 import models.User;
 import models.Comment;
 import play.Logger;
+import play.mvc.Before;
 import play.mvc.Controller;
 
 public class BlogPost extends Controller
 {
+	@Before
+	  static void checkAuthentification()
+	  {
+	    if(session.contains("logged_in_userid") == false)
+	      Accounts.login();
+	  }
   public static void display(Long postid)
   {
     Logger.info("Post ID = " + postid);

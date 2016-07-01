@@ -4,12 +4,19 @@ import java.util.List;
 import models.Post;
 import models.User;
 import play.Logger;
+import play.mvc.Before;
 import play.mvc.Controller;
 import java.util.Collections;
 import java.util.ArrayList;
 
 public class Blog  extends Controller
 {
+	@Before
+	  static void checkAuthentification()
+	  {
+	    if(session.contains("logged_in_userid") == false)
+	      Accounts.login();
+	  }
 	
   public static void index()
   {
